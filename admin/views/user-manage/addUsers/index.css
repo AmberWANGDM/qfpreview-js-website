@@ -19,3 +19,20 @@ body,
   flex: 1;
   padding-top: 50px;
 }
+.main .box .content {
+  padding: 20px;
+}
+.main .box .content .maincontent {
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.userprofile {
+  display: flex;
+}
+.userprofile > div {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

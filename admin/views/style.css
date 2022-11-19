@@ -22,3 +22,7 @@ body,
 .main .box .content {
   padding: 20px;
 }
+.main .box .content .maincontent {
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}

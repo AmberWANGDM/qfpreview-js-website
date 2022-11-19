@@ -20,8 +20,41 @@
         <div class="row">
           <div class="col-2 sidemenu">
           </div>
-          <div class="col-10">
-            Column
+          <div class="col-10 content">
+            <div class="maincontent">
+              <!-- 面包屑 -->
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item " aria-current="page">用户管理</li>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">添加用户</li>
+                  </li>
+                  </li>
+                </ol>
+              </nav>
+              <!-- 表单 -->
+              <form id="addUserForm">
+                <div class="mb-3">
+                  <label for="username" class="form-label">用户名</label>
+                  <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">密码</label>
+                  <input type="password" class="form-control" id="password" required>
+                </div>
+                <div class="mb-3">
+                  <label for="introduction" class="form-label">个人简介</label>
+                  <textarea class="form-control" id="introduction" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="avatar" class="form-label">头像</label>
+                  <input type="file" class="form-control" id="avatar">
+                </div>
+                <button type="submit" class="btn btn-primary">添加用户</button>
+
+
+              </form>
+            </div>
           </div>
         </div>
       </div>

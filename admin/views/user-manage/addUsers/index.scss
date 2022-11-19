@@ -1,1 +1,14 @@
 @import '../../style.scss';
+
+
+
+.userprofile{
+  display: flex;
+  // 直接子元素
+  > div {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
