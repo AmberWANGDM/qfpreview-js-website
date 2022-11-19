@@ -47,4 +47,4 @@ async function load(id) {
   }
 }
 
-export { load }
+export { isLogin, load }

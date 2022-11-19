@@ -1,1 +1,17 @@
-@import '../style.sass';
+@import '../style.scss';
+
+.maincontent{
+  padding: 20px;
+  box-shadow: 0 0 5px rgba($color:#000000,$alpha:0.2);
+} 
+
+.userprofile{
+  display: flex;
+  // 直接子元素
+  > div {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
