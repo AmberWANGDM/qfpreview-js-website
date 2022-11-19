@@ -2,15 +2,25 @@
 import { load } from '/admin/utils/LoadView.js'
 
 load('sidemenu-addUsers')
-
-let avatarBase = ''
-addUserForm.onsubmit = function (e) {
+let photo = ''
+addUserForm.onsubmit = async function (e) {
   e.preventDefault()
 
-  console.log(username.value)
-  console.log(password.value)
-  console.log(introduction.value)
-  console.log(avatarBase)
+  // 将表单数据提交到数据库
+  await fetch('http://localhost:3000/users', {
+    method: 'post',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      username: username.value,
+      password: password.value,
+      introduction: introduction.value,
+      photo,
+    }),
+  }).then((response) => response.json())
+
+  location.href = '/admin/views/user-manage/userList/index.html'
 }
 
 // 把头像转成base64形式
@@ -23,6 +33,6 @@ avatar.onchange = function (e) {
   // onload事件在文件读取操作完成时触发
   reader.onload = function (e) {
     // e.target：FileReader对象reader
-    avatarBase = e.target.result
+    photo = e.target.result
   }
 }
