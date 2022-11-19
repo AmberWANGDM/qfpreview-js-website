@@ -1,0 +1,67 @@
+<ul class="nav flex-column" style="margin-top: 10px">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#" id="sidemenu-home">首页</a>
+  </li>
+  <li class="nav-item">
+    <div class="accordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#userManage"
+            aria-expanded="true" aria-controls="collapseOne">
+            用户管理
+          </button>
+        </h2>
+        <div id="userManage" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+          <div class="accordion-body">
+            <a class="nav-link active" aria-current="page" href="#" id="sidemenu-addUser">添加用户</a>
+            <a class="nav-link active" aria-current="page" href="#" id="sidemenu-userList">用户列表</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </li>
+  <li class="nav-item">
+    <div class="accordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#newsManage"
+            aria-expanded="true" aria-controls="collapseOne">
+            新闻管理
+          </button>
+        </h2>
+        <div id="newsManage" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+          <div class="accordion-body">
+            <a class="nav-link active" aria-current="page" href="#" id="sidemenu-addNews">创建新闻</a>
+            <a class="nav-link active" aria-current="page" href="#" id="sidemenu-newsList">新闻列表</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </li>
+
+</ul>
+
+
+<style>
+  .nav-link {
+    color: black;
+  }
+
+  .accordion-item {
+    background-color: #fff;
+    border: none;
+  }
+
+  .accordion-button:focus {
+    box-shadow: none;
+  }
+
+
+  .accordion-button:not(.collapsed) {
+    color: black;
+    background-color: white;
+    box-shadow: none;
+  }
+</style>

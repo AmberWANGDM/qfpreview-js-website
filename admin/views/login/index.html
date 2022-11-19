@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 相对路径以/开头，从根路径开始向下找 -->
+  <!-- 引入bootstrap库的css和js -->
+  <link rel="stylesheet" href="/admin/lib/css/bootstrap.css">
+  <script src="/admin/lib/js/bootstrap.bundle.js"></script>
+  <!-- 引入样式文件 -->
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>峰企网站后台管理系统</h2>
+    <form id="loginform">
+      <div class="mb-3">
+        <label for="username" class="form-label">用户名</label>
+        <input type="text" class="form-control" id="username" required aria-describedby="emailHelp">
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">密码</label>
+        <input type="password" class="form-control" id="password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">登录</button>
+
+      <!-- 警告通过js控制 -->
+      <div id="loginwarning" class="form-text" style="display:none">用户名密码不匹配</div>
+
+    </form>
+  </div>
+  <!-- 引入js -->
+  <script src="./index.js"></script>
+</body>
+
+</html>
