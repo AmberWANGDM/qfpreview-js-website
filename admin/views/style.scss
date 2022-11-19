@@ -1,0 +1,25 @@
+html,
+body,
+.main {
+  height: 100%;
+}
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+
+  .topbar {
+    height: 50px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+
+  .box {
+    flex: 1;
+    padding-top: 50px;
+  }
+}

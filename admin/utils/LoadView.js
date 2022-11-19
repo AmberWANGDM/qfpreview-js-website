@@ -8,7 +8,8 @@ function isLogin() {
   return localStorage.getItem('token')
 }
 
-// 根据localStorage存储的 用户信息 动态渲染topBar，退出登录功能实现
+// 根据localStorage存储的 用户信息 动态渲染topBar
+// 退出登录功能实现
 function topBarRender(user) {
   const { username, photo } = user
   document.querySelector('#currentUserName').innerHTML = username
@@ -20,6 +21,7 @@ function topBarRender(user) {
   }
 }
 
+// 加载topbar和sidebar
 async function load(id) {
   let user = isLogin()
   if (user) {
@@ -35,6 +37,7 @@ async function load(id) {
     let sidemenuText = await fetch(
       '/admin/views/components/sidemenu/index.html'
     ).then((response) => response.text())
+
     document.querySelector('.sidemenu').innerHTML = sidemenuText
     // DONE 实现sidemenu选中高亮
     document.getElementById(id).style.color = '#0d6efd'
