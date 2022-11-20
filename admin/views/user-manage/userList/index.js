@@ -4,6 +4,9 @@ load('sidemenu-userList') // 加载topbar，sidemenu
 
 // 获取tbody节点
 const listBody = document.getElementById('listBody')
+// 获取模态框
+let myModal = new bootstrap.Modal(document.getElementById('editModal'))
+
 // 渲染表格
 async function render() {
   // 从数据库获取用户列表，返回数组
@@ -20,9 +23,12 @@ async function render() {
             style="width:50px;border-radius:50%">
             </td>
             <td>
-            <button type="button" class="btn btn-primary" 
-            ${item.default ? 'disabled' : ''}>编辑</button>
-            <button type="button" class="btn btn-danger"
+            <button type="button" class="btn btn-primary btn-edit" 
+            ${item.default ? 'disabled' : ''}
+            >
+            编辑
+            </button>
+            <button type="button" class="btn btn-danger btn-del"
             ${item.default ? 'disabled' : ''}>删除</button>
             </td>
           </tr>
@@ -31,3 +37,15 @@ async function render() {
     .join('')
 }
 render()
+
+// 编辑用户，事件委托
+listBody.onclick = function (e) {
+  if (e.target.className.includes('btn-edit')) {
+    // todo 显示模态框编辑用户信息
+    myModal.toggle()
+    // 预填模态框
+  } else if (e.target.className.includes('btn-del')) {
+    console.log('del')
+  } else {
+  }
+}
