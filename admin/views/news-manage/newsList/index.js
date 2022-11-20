@@ -42,11 +42,14 @@ render()
 // 事件委托
 listBody.onclick = function (e) {
   if (e.target.className.includes('btn-preview')) {
-    // todo 文章预览模态框
+    // done 文章预览模态框
     perviewModal.toggle()
     let newsObj = list.filter((item) => item.id == e.target.dataset.id)[0]
     renderPreviewModal(newsObj)
   } else if (e.target.className.includes('btn-edit')) {
+    // todo 编辑新闻
+    location.href =
+      '/admin/views/news-manage/editNews/index.html?id=' + e.target.dataset.id
   } else if (e.target.className.includes('btn-del')) {
   }
 }
