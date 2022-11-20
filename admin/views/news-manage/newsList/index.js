@@ -6,6 +6,10 @@ let list = []
 let categoryList = ['最新动态', '典型案例', '通知公告']
 // 初始化文章预览模态框
 let perviewModal = new bootstrap.Modal(document.getElementById('perviewModal'))
+// 删除确认模态框
+let delModal = new bootstrap.Modal(document.getElementById('delModal'))
+// 删除id
+let delId = -1
 
 load('sidemenu-newsList') // 加载topbar，sidemenu
 
@@ -47,14 +51,26 @@ listBody.onclick = function (e) {
     let newsObj = list.filter((item) => item.id == e.target.dataset.id)[0]
     renderPreviewModal(newsObj)
   } else if (e.target.className.includes('btn-edit')) {
-    // todo 编辑新闻
+    // done 编辑新闻
     location.href =
       '/admin/views/news-manage/editNews/index.html?id=' + e.target.dataset.id
   } else if (e.target.className.includes('btn-del')) {
+    // done 删除新闻
+    delId = e.target.dataset.id
+    delModal.toggle()
   }
 }
 
 function renderPreviewModal(newsObj) {
   perviewModalTitle.innerHTML = newsObj.title
   perviewModalContent.innerHTML = newsObj.content
+}
+
+// 删除确认按钮事件
+delConfirm.onclick = async function () {
+  await fetch(`http://localhost:3000/news/${delId}`, { method: 'delete' }).then(
+    (response) => response.json()
+  )
+  delModal.toggle()
+  render()
 }
