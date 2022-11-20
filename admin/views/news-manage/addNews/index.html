@@ -9,6 +9,24 @@
   <link rel="stylesheet" href="/admin//lib//css/bootstrap.css">
   <script src="/admin//lib/js/bootstrap.js"></script>
   <link rel="stylesheet" href="./index.css">
+  <!-- 富文本编辑器 -->
+  <link href="https://unpkg.com/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
+  <script src="https://unpkg.com/@wangeditor/editor@latest/dist/index.js"></script>
+  <style>
+    #editor—wrapper {
+      border: 1px solid #ccc;
+      z-index: 100;
+      /* 按需定义 */
+    }
+
+    #toolbar-container {
+      border-bottom: 1px solid #ccc;
+    }
+
+    #editor-container {
+      height: 500px;
+    }
+  </style>
 </head>
 
 <body>
@@ -22,6 +40,43 @@
           </div>
           <div class="col-10 content">
             <div class="maincontent">
+              <!-- 面包屑 -->
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item " aria-current="page">新闻管理</li>
+                  <li class="breadcrumb-item active" aria-current="page">创建新闻</li>
+                </ol>
+              </nav>
+              <!-- 表单 -->
+              <form id="addNewsForm">
+                <div class="mb-3">
+                  <label for="title" class="form-label">标题</label>
+                  <input type="text" class="form-control" id="title" required>
+                </div>
+                <div class="mb-3">
+                  <label for="content" class="form-label">内容</label>
+                  <!-- 富文本编辑器 -->
+                  <div id="content" style="border:1px solid #ced4da">
+                    <div id="toolbar-container">
+                    </div>
+                    <div id="editor-container">
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="category" class="form-label">类别</label>
+                  <select class="form-select" aria-label="Default select example" id="category">
+                    <option value="0">最新动态</option>
+                    <option value="1">典型案例</option>
+                    <option value="2">通知公告</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="coverFile" class="form-label">封面图片</label>
+                  <input type="file" class="form-control" id="coverFile">
+                </div>
+                <button type="submit" class="btn btn-primary">创建新闻</button>
+              </form>
             </div>
           </div>
         </div>
