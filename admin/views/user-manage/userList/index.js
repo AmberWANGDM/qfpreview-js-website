@@ -47,10 +47,9 @@ listBody.onclick = function (e) {
   if (e.target.className.includes('btn-edit')) {
     // done 显示模态框编辑用户信息
     myModal.toggle()
-    // todo 预填模态框
+    // done 预填模态框
     // 1. 获取用户id（注意会变为小写）
     updateId = e.target.dataset.userid
-    console.log(updateId)
     // 2. 通过updateId获取用户列表对应用户信息
     let editUserInfo = userList.filter((item) => item.id == updateId)[0] // 类型强制转换
     // 3. 将用户信息渲染到模态框
@@ -62,5 +61,34 @@ listBody.onclick = function (e) {
   } else if (e.target.className.includes('btn-del')) {
     console.log('del')
   } else {
+  }
+}
+
+// todo 保存编辑 PATCH 局部更新
+editConfirm.onclick = async function () {
+  let res = await fetch(`http://localhost:3000/users/${updateId}`, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      username: document.getElementById('username').value,
+      password: document.getElementById('password').value,
+      introduction: document.getElementById('introduction').value,
+      photo: photoFile,
+    }),
+  }).then((response) => response.json())
+  // 关闭模态框
+  myModal.toggle()
+  // 页面刷新，重新渲染tbody (location.reload()不合适)
+  render()
+}
+
+// 如果更新头像，转成base64
+avatar.onchange = function (e) {
+  let reader = new FileReader()
+  reader.readAsDataURL(e.target.files[0])
+  reader.onload = function (e) {
+    photoFile = e.target.result
   }
 }
