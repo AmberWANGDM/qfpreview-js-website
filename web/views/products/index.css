@@ -10,30 +10,17 @@ body,
 }
 .main .topbar {
   height: 50px;
+  width: 100%;
   position: fixed;
+  z-index: 999;
   left: 0;
   top: 0;
-  width: 100%;
 }
 .main .box {
   flex: 1;
   padding-top: 50px;
 }
-.main .box .content {
-  padding: 20px;
-}
 
-.maincontent {
-  padding: 20px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.userprofile {
-  display: flex;
-}
-.userprofile > div {
-  margin-left: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+#carouselExampleCaptions {
+  height: 100%;
 }

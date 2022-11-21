@@ -8,6 +8,14 @@ body,
 .main {
   display: flex;
   flex-direction: column;
+  .topbar{
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+  }
   .box {
     flex: 1;
     padding-top: 50px;

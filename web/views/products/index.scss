@@ -1,2 +1,9 @@
-@import '../style.scss';
+@import '../../style.scss';
 
+// 轮播图占满box，box是topbar以外的部分(flex:1)
+#carouselExampleCaptions{
+  height: 100%;
+}
+
+
+// 溢出问题 —— div加一个背景图
