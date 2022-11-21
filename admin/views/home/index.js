@@ -21,7 +21,7 @@ async function getArticleList() {
     `http://localhost:3000/news?author=${user.username}`
   ).then((response) => response.json())
   // console.log(articleList)
-  let res = _.groupBy(articleList, (item) => item.category)
+  let res = _.groupBy(articleList, (item) => item.category) //mark groupBy函数
   // console.log(res)
   for (let i in res) {
     data.push({
