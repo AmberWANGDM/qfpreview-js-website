@@ -7,6 +7,7 @@
   background-image: url('http://localhost:3000/bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: 100;
   .search-container{
       position: absolute;
       width: 75%;
@@ -18,5 +19,23 @@
         width: 100%;
         opacity: 80%;
       }
+  }
+}
+
+.cardContainer{
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  .card{
+    width: calc(100vw / 4 - 20px) ;
+    .card-img-top{
+      width: 100%;
+      height: 150px;
+      background-size: cover;
+      background-position: center;
+    }
+    &:hover{
+      box-shadow: 0 0 5px black;
+    }
   }
 }
