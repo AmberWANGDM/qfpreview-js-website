@@ -29,9 +29,9 @@ search.onblur = function () {
   listGroup.style.display = 'none'
 }
 
-function render() {
-  renderList()
-  renderTab()
+async function render() {
+  await renderList()
+  await renderTab()
 }
 render()
 
@@ -55,7 +55,6 @@ async function renderList() {
     .join('')
 
   let card = document.querySelectorAll('.card')
-  console.log(card)
   // for-of循环
   for (let item of card) {
     item.onclick = function () {
@@ -64,4 +63,31 @@ async function renderList() {
   }
 }
 
-function renderTab() {}
+function renderTab() {
+  let categoryObj = _.groupBy(list, (item) => item.category)
+  // console.log(categoryObj) // {0: Array(2), 1: Array(4), 2: Array(2)}
+  // console.log(categoryObj['0']) // (2) [{…}, {…}]
+  let tabs = [tab0, tab1, tab2] // 按照分类映射到不同的tab
+  tabs.forEach((item, index) => {
+    // 需要考虑某分类下没有新闻的情况
+    item.innerHTML =
+      categoryObj[index]
+        ?.map(
+          // ? 前面为假就不继续链式调用
+          (item) =>
+            `
+              <div class="listItem" data-id="${item.id}">
+                <img src="${item.cover}" data-id="${item.id}">
+                <div data-id="${item.id}">${item.title}</div>
+                <p data-id="${item.id}">${item.author}</p>
+              </div>
+            `
+        )
+        .join('') || '' // ||  undefined -> 空
+
+    // 跳转详情页面 dataset需要绑定到每个元素
+    item.onclick = function (e) {
+      location.href = `/web/views/detail/index.html?id=${e.target.dataset.id}`
+    }
+  })
+}
