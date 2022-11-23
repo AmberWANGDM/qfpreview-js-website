@@ -4,7 +4,7 @@ async function load(id) {
     (response) => response.text()
   )
   document.querySelector('.topbar').innerHTML = topbarText
-
+  if (!id) return
   document.querySelector(`#${id}`).style.color = '#0a58ca'
 }
 
