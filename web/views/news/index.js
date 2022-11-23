@@ -26,12 +26,16 @@ search.oninput = async function () {
 }
 
 search.onblur = function () {
-  listGroup.style.display = 'none'
+  // bug 链接点击不跳转详情
+  // 需要设置延时
+  setTimeout(() => {
+    document.querySelector('.list-group').style.display = 'none'
+  }, 200)
 }
 
 async function render() {
   await renderList()
-  await renderTab()
+  renderTab()
 }
 render()
 
